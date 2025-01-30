@@ -246,24 +246,24 @@ export async function getSpaceInfoViaResource({
     !resourceIdType || resourceIdType === 'space'
       ? isSpaceOptedIn
       : resourceIdType === 'postCategory'
-        ? isPostCategorySpaceOptedIn
-        : resourceIdType === 'postCategoryPermission'
-          ? isPostCategoryPermissionSpaceOptedIn
-          : resourceIdType === 'post'
-            ? isPostSpaceOptedIn
-            : resourceIdType === 'proposal'
-              ? isProposalSpaceOptedIn
-              : resourceIdType === 'page'
-                ? isPageSpaceOptedIn
-                : resourceIdType === 'pagePermission'
-                  ? isPagePermissionSpaceOptedIn
-                  : resourceIdType === 'bounty'
-                    ? isBountySpaceOptedIn
-                    : resourceIdType === 'vote'
-                      ? isVoteSpaceOptedIn
-                      : resourceIdType === 'role'
-                        ? isRoleSpaceOptedIn
-                        : null;
+      ? isPostCategorySpaceOptedIn
+      : resourceIdType === 'postCategoryPermission'
+      ? isPostCategoryPermissionSpaceOptedIn
+      : resourceIdType === 'post'
+      ? isPostSpaceOptedIn
+      : resourceIdType === 'proposal'
+      ? isProposalSpaceOptedIn
+      : resourceIdType === 'page'
+      ? isPageSpaceOptedIn
+      : resourceIdType === 'pagePermission'
+      ? isPagePermissionSpaceOptedIn
+      : resourceIdType === 'bounty'
+      ? isBountySpaceOptedIn
+      : resourceIdType === 'vote'
+      ? isVoteSpaceOptedIn
+      : resourceIdType === 'role'
+      ? isRoleSpaceOptedIn
+      : null;
 
   if (!engineResolver) {
     throw new InvalidInputError(`Invalid resolver provided`);

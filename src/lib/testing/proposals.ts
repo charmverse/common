@@ -213,17 +213,18 @@ export async function generateProposal({
       );
 
     const evaluationReviewersToCreate: Prisma.ProposalReviewerCreateManyInput[] =
-      evaluationInputsWithIdAndIndex.flatMap((input) =>
-        input.reviewers?.map(
-          (reviewer) =>
-            ({
-              proposalId,
-              evaluationId: input.id,
-              roleId: reviewer.group === 'role' ? reviewer.id : undefined,
-              userId: reviewer.group === 'user' ? reviewer.id : undefined,
-              systemRole: ProposalSystemRole[reviewer.group as ProposalSystemRole] ? reviewer.group : undefined
-            }) as Prisma.ProposalReviewerCreateManyInput
-        )
+      evaluationInputsWithIdAndIndex.flatMap(
+        (input) =>
+          input.reviewers?.map(
+            (reviewer) =>
+              ({
+                proposalId,
+                evaluationId: input.id,
+                roleId: reviewer.group === 'role' ? reviewer.id : undefined,
+                userId: reviewer.group === 'user' ? reviewer.id : undefined,
+                systemRole: ProposalSystemRole[reviewer.group as ProposalSystemRole] ? reviewer.group : undefined
+              }) as Prisma.ProposalReviewerCreateManyInput
+          )
       );
 
     const evaluationAppealReviewersToCreate: Prisma.ProposalAppealReviewerCreateManyInput[] =

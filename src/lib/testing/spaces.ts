@@ -64,18 +64,18 @@ export async function addSpaceOperations({
           }
         }
       : group === 'role'
-        ? {
-            roleId_forSpaceId: {
-              roleId: id,
-              forSpaceId
-            }
+      ? {
+          roleId_forSpaceId: {
+            roleId: id,
+            forSpaceId
           }
-        : {
-            spaceId_forSpaceId: {
-              spaceId: id,
-              forSpaceId
-            }
-          };
+        }
+      : {
+          spaceId_forSpaceId: {
+            spaceId: id,
+            forSpaceId
+          }
+        };
 
   await prisma.spacePermission.upsert({
     where: query,
